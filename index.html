@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>W.W. Jacobs | Master of the Macabre & Humor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f6f3ee;
+      --text: #2a2826;
+      --accent: #8c2d19;
+      --card-bg: #ffffff;
+      --nav-bg: #1a1917;
+      --border: #e0d9cc;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Source Sans 3', system-ui, sans-serif;
+    }
+
+    body { font-family: var(--serif); background-color: var(--bg); color: var(--text); line-height: 1.7; }
+
+    /* Navigation */
+    nav { position: fixed; top: 0; width: 100%; background-color: var(--nav-bg); padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; box-shadow: 0 2px 14px rgba(0,0,0,0.4); }
+    .logo { color: #f5f0e8; font-family: var(--serif); font-size: 1.35rem; font-weight: 700; letter-spacing: 1px; }
+    nav ul { display: flex; list-style: none; gap: 24px; }
+    nav a { color: #c8bfb0; text-decoration: none; font-family: var(--sans); font-size: 0.92rem; font-weight: 600; transition: color 0.25s; }
+    nav a:hover { color: #e8a87c; }
+
+    /* Hero */
+    header {
+    margin-top: 56px; 
+            height: 480px; 
+            background: linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.72)), url('https://upload.wikimedia.org/wikipedia/commons/b/ba/Picture_of_W._W._Jacobs.jpg') center/cover no-repeat; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            color: #fff; 
+            padding: 24px; 
+    }
+    header h1 { font-family: var(--serif); font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; letter-spacing: 2px; margin-bottom: 10px; text-shadow: 0 2px 12px rgba(0,0,0,0.5); }
+    header .dates { font-size: 1.2rem; font-style: italic; color: #e8ddd0; text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
+    header .quote { margin-top: 18px; font-size: 1.05rem; max-width: 620px; border-left: 3px solid #c8956c; padding-left: 16px; text-align: left; font-style: italic; color: #f0e8d8; }
+
+    /* Container */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+    section:last-child { border-bottom: none; }
+    h2 { font-family: var(--serif); font-size: 2rem; color: var(--accent); margin-bottom: 22px; position: relative; }
+    h2::after { content: ''; display: block; width: 52px; height: 3px; background-color: var(--accent); margin-top: 10px; border-radius: 2px; }
+
+    /* Split layout */
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center; }
+    .split-text p { margin-bottom: 16px; font-size: 1.05rem; text-align: justify; color: #3a3632; }
+    .split-img img { width: 100%; height: 370px; object-fit: cover; object-position: top center; border-radius: 4px; box-shadow: 0 6px 24px rgba(0,0,0,0.18); border: 1px solid var(--border); }
+
+    /* Books */
+    .books-intro { margin-bottom: 32px; font-size: 1.05rem; color: #3a3632; }
+    .books-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+    .book-card { background-color: var(--card-bg); border-radius: 6px; overflow: hidden; box-shadow: 0 3px 12px rgba(0,0,0,0.07); border: 1px solid var(--border); transition: transform 0.28s ease, box-shadow 0.28s ease; }
+    .book-card:hover { transform: translateY(-6px); box-shadow: 0 10px 28px rgba(0,0,0,0.14); }
+    .book-card img { width: 100%; height: 210px; object-fit: cover; display: block; }
+    .book-info { padding: 20px; }
+    .book-date { font-family: var(--sans); font-size: 0.78rem; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .book-info h3 { font-family: var(--serif); font-size: 1.3rem; color: var(--accent); margin-bottom: 10px; }
+    .book-info p { font-size: 0.95rem; color: #4a4642; line-height: 1.65; }
+
+    /* Footer */
+    footer { background-color: var(--nav-bg); color: #7a7672; text-align: center; padding: 28px 24px; font-family: var(--sans); font-size: 0.88rem; }
+    footer p + p { margin-top: 8px; font-size: 0.8rem; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .split { grid-template-columns: 1fr; gap: 28px; }
+      .childhood-img { order: -1; }
+      nav { flex-direction: column; gap: 10px; padding: 12px 16px; }
+      nav ul { gap: 14px; }
+      header { margin-top: 90px; height: auto; padding: 48px 20px; }
+      .split-img img { height: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">W.W. Jacobs</div>
+    <ul>
+      <li><a href="About.html">About</a></li>
+      <li><a href="Context.html">Context</a></li>
+      <li><a href="Report.html">Famous Books</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>William Wymark Jacobs</h1>
+    <p class="dates">1863 – 1943</p>
+    <p class="quote">"Be careful what you wish for, you just might get it."</p>
+  </header>
+
+  <div class="container">
+
+    <!-- About -->
+    <section id="about" class="split">
+      <div class="split-text">
+        <h2>About the Author</h2>
+        <p><strong>William Wymark Jacobs</strong> was an eminent English author best remembered for his masterful horror story <em>"The Monkey's Paw"</em>.</p>
+        <p>While his modern legacy heavily rests on his macabre supernatural tales, the vast majority of Jacobs's actual literary output was lighthearted and humorous.</p>
+        <p>He was a highly celebrated humorist during his era, drawing praise from contemporary literary legends like Henry James, G.K. Chesterton, and H.G. Wells. He managed to perfectly transition daily civilian life into captivating fiction.</p>
+      </div>
+      <div class="split-img">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Picture_of_W._W._Jacobs.jpg"
+       
+          onerror="https://upload.wikimedia.org/wikipedia/commons/b/ba/Picture_of_W._W._Jacobs.jpg auto=format&fit=crop&w=600&q=80'"
+        >
+      </div>
+    </section>
+
+    <!-- Childhood -->
+    <section id="childhood" class="split">
+      <div class="split-img childhood-img">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/London_Docks_1895.jpg/640px-London_Docks_1895.jpg"
+          alt="Victorian London docks"
+          onerror="this.src='https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80'"
+        >
+      </div>
+      <div class="split-text">
+        <h2>Early Life &amp; Childhood</h2>
+        <p>Born on September 8, 1863, in the Wapping district of East London, Jacobs grew up tightly connected to maritime life.</p>
+        <p>His father was a wharf manager at the South Devon Wharf on the River Thames. Spending his childhood around the vibrant, chaotic docklands heavily inspired his creative mind.</p>
+        <p>The seafaring men, sailors, dockworkers, and transient travelers he encountered daily became the vivid templates for the colorful characters found throughout his short story collections later in life.</p>
+      </div>
+    </section>
+
+    <!-- Books -->
+    <section id="books">
+      <h2>Famous Works &amp; Books</h2>
+      <p class="books-intro">W.W. Jacobs published thirteen short story collections and five novels. Here are a few of his most significant works:</p>
+
+      <div class="books-grid">
+
+        <div class="book-card">
+          <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=800&q=80" alt="The Lady of the Barge">
+          <div class="book-info">
+            <div class="book-date">1902 · Short Story Collection</div>
+            <h3>The Lady of the Barge</h3>
+            <p>This critical collection contains his absolute masterpiece, <em>"The Monkey's Paw"</em>, a terrifying story exploring three cursed wishes and the deadly consequences of tampering with fate.</p>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <img src="https://images.unsplash.com/photo-1540202403-b7abd6747a18?auto=format&fit=crop&w=800&q=80" alt="Many Cargoes">
+          <div class="book-info">
+            <div class="book-date">1896 · Debut Anthology</div>
+            <h3>Many Cargoes</h3>
+            <p>Jacobs's debut anthology introduced the world to his vibrant seafaring characters. Set aboard merchant ships and in British ports, the stories blend sharp wit with maritime adventure.</p>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <img src="https://images.unsplash.com/photo-1501686637-b7aa9c48a882?auto=format&fit=crop&w=800&q=80" alt="Night Watches">
+          <div class="book-info">
+            <div class="book-date">1914 · Short Story Collection</div>
+            <h3>Night Watches</h3>
+            <p>One of his finest later collections, blending comedic tales of dock life and night-shift workers with darker undercurrents and ghostly, unsettling encounters.</p>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <img src="https://images.unsplash.com/photo-1615751072497-5f5169febe17?auto=format&fit=crop&w=800&q=80" alt="The Monkey's Paw">
+          <div class="book-info">
+            <div class="book-date">1902 · Most Famous Story</div>
+            <h3>The Monkey's Paw</h3>
+            <p>Arguably the most famous short horror story in the English language. The tale of the White family and a cursed talisman that grants three wishes with devastating consequences remains chilling over a century later.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>William Wymark Jacobs (1863–1943) · Master of the Macabre &amp; Victorian Humor</p>
+    <p>A tribute page celebrating one of England's finest short story writers.</p>
+  </footer>
+
+</body>
+</html>
